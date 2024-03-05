@@ -1,0 +1,75 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part '$fileNameWithoutExtension$.freezed.dart';
+
+@freezed
+class $NAME$Event with _$$$NAME$Event {
+  const $NAME$Event._();
+
+  const factory $NAME$Event.create() = _Create$NAME$Event;
+
+  const factory $NAME$Event.read() = _Read$NAME$Event;
+
+  const factory $NAME$Event.update() = _Update$NAME$Event;
+
+  const factory $NAME$Event.delete() = _Delete$NAME$Event;
+}
+
+@freezed
+class $NAME$State with _$$$NAME$State {
+  const $NAME$State._();
+
+  /// Ожидание действий от пользователя
+  const factory $NAME$State.idle() = _Idle$NAME$State;
+  
+  /// Состояние загрузки
+  const factory $NAME$State.progress() = _Progress$NAME$State;
+  
+  /// Состояние успеха
+  const factory $NAME$State.success() = _Success$NAME$State;
+  
+  /// Состояние ошибки
+  const factory $NAME$State.error() = _Error$NAME$State;
+}
+
+class $NAME$Bloc extends Bloc<$NAME$Event, $NAME$State> {
+  $NAME$Bloc() : super(const $NAME$State.idle()) {
+    on<$NAME$Event>(
+      (event, emit) => event.map(
+        create: (event) => _create(event, emit),
+        read: (event) => _read(event, emit),
+        update: (event) => _update(event, emit),
+        delete: (event) => _delete(event, emit),
+      ),
+    );
+  }
+  
+  Future<void> _create(
+    _Create$NAME$Event event,
+    Emitter<$NAME$State> emit,
+  ) async {
+    // ...
+  }
+  
+  Future<void> _read(
+    _Read$NAME$Event event,
+    Emitter<$NAME$State> emit,
+  ) async {
+    // ...
+  }
+  
+  Future<void> _update(
+    _Update$NAME$Event event,
+    Emitter<$NAME$State> emit,
+  ) async {
+    // ...
+  }
+  
+  Future<void> _delete(
+    _Delete$NAME$Event event,
+    Emitter<$NAME$State> emit,
+  ) async {
+    // ...
+  }
+}
